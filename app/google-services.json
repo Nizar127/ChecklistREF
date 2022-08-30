@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "58834941574",
+    "project_id": "cefs-95cfc",
+    "storage_bucket": "cefs-95cfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58834941574:android:442f5c3e545d00a1adc307",
+        "android_client_info": {
+          "package_name": "com.CEFS.checklist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58834941574-f5gj9an8vn3a13abdcic6e4fqi60k3cb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDomouzB5AF3Y6Nvxtp0XeOdKRAa9n2fws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58834941574-f5gj9an8vn3a13abdcic6e4fqi60k3cb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

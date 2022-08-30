@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    tools:context=".EquipmentDetailChecklistActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_equipment_checklist"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/splashname">
+
+            <ImageView
+                android:id="@+id/back_btn_equipment_theold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/the_arrow_back" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/get_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                android:textColor="@color/WhiteSmoke"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/toolbar_equipment_checklist">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/equipment1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_below="@+id/toolbar_add_new_product"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/equip1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/allerta"
+                        android:text="@string/equip1"
+                        android:textColor="@color/splashname"
+                        android:textSize="20sp" />
+
+                    <TableLayout
+                        android:id="@+id/tbl_equip1"
+                        android:layout_below="@+id/equip1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="3">
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/quantity1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:hint="@string/qty"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp"
+                                android:textColorHint="#070707" />
+
+                            <TextView
+                                android:id="@+id/shiftA1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:hint="@string/shiftA"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp"
+                                android:textColorHint="#070707"/>
+
+
+                            <TextView
+                                android:id="@+id/shiftB1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:hint="@string/shiftB"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp"
+                                android:textColorHint="#070707"/>
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/equipment2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/equipment1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/equip2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toolbar_add_new_product"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/allerta"
+                        android:text="@string/equip2"
+                        android:textColor="@color/splashname"
+                        android:textSize="20sp" />
+
+                    <TableLayout
+                        android:id="@+id/tbl_equip2"
+                        android:layout_below="@+id/equip2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="3">
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/quantity2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/qty"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+                            <TextView
+                                android:id="@+id/shiftA2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftA"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+
+                            <TextView
+                                android:id="@+id/shiftB2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftB"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/equipment3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/equipment2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/equip3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toolbar_add_new_product"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/allerta"
+                        android:text="@string/equip3"
+                        android:textColor="@color/splashname"
+                        android:textSize="20sp" />
+
+                    <TableLayout
+                        android:id="@+id/tbl_equip3"
+                        android:layout_below="@+id/equip3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="3">
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/quantity3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/qty"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+                            <TextView
+                                android:id="@+id/shiftA3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftA"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+
+                            <TextView
+                                android:id="@+id/shiftB3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftB"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/equipment4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/equipment3"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/equip4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toolbar_add_new_product"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/allerta"
+                        android:text="@string/equip4"
+                        android:textColor="@color/splashname"
+                        android:textSize="20sp" />
+
+                    <TableLayout
+                        android:id="@+id/tbl_equip4"
+                        android:layout_below="@+id/equip4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="3">
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/quantity4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/qty"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+                            <TextView
+                                android:id="@+id/shiftA4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftA"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+
+                            <TextView
+                                android:id="@+id/shiftB4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftB"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/equipment5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/equipment4"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/equip5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toolbar_add_new_product"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/allerta"
+                        android:text="@string/equip5"
+                        android:textColor="@color/splashname"
+                        android:textSize="20sp" />
+
+                    <TableLayout
+                        android:id="@+id/tbl_equip5"
+                        android:layout_below="@+id/equip5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="3">
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/quantity5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/qty"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+                            <TextView
+                                android:id="@+id/shiftA5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftA"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+
+                            <TextView
+                                android:id="@+id/shiftB5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftB"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/equipment6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/equipment5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/equip6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/toolbar_add_new_product"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/allerta"
+                        android:text="@string/equip6"
+                        android:textColor="@color/splashname"
+                        android:textSize="20sp" />
+
+                    <TableLayout
+                        android:id="@+id/tbl_equip6"
+                        android:layout_below="@+id/equip5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stretchColumns="3">
+
+                        <TableRow
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/quantity6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/qty"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+                            <TextView
+                                android:id="@+id/shiftA6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftA"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+
+
+                            <TextView
+                                android:id="@+id/shiftB6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/equipmentList"
+                                android:layout_margin="8dp"
+                                android:textColorHint="#070707"
+                                android:hint="@string/shiftB"
+                                android:inputType="textMultiLine"
+                                android:padding="17dp" />
+                        </TableRow>
+
+                    </TableLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

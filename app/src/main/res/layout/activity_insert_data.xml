@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InsertDataActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_add_new_product"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/splashname">
+
+            <ImageView
+                android:id="@+id/back_btn_add_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/the_arrow_back" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/get_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title"
+                android:textColor="@color/WhiteSmoke"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/userNameID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar_add_new_product"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="Need to do separate page just for equipment list with qty underneath"
+                android:textColor="@color/splashname"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/foam_tender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dhikrNameID"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_design"
+                android:hint="@string/foam_tender"
+                android:inputType="textMultiLine"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/registration_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/foam_tender"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_design"
+                android:hint="@string/Registration"
+                android:inputType="textMultiLine"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/dateItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/registration_number"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_design"
+                android:hint="@string/Date"
+                android:inputType="date"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/foamcapacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dateItem"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_design"
+                android:hint="@string/foam_capacity"
+                android:inputType="numberDecimal"
+                android:padding="20dp" />
+
+            <EditText
+                android:id="@+id/watercapacity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/foamcapacity"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_design"
+                android:hint="@string/water_capacity"
+                android:inputType="numberDecimal"
+                android:padding="20dp" />
+
+        <EditText
+            android:id="@+id/cabinet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/watercapacity"
+            android:layout_margin="10dp"
+            android:background="@drawable/input_design"
+            android:hint="Cabinet"
+            android:inputType="numberDecimal"
+            android:padding="20dp" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextBtnUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cabinet"
+            android:layout_margin="10dp"
+            android:backgroundTint="@color/splashname"
+            android:padding="20dp"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
+
+
+        <EditText
+                android:id="@+id/equipmentList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cabinet"
+                android:layout_margin="10dp"
+                android:background="@drawable/input_design"
+                android:hint="@string/equipment_list"
+                android:inputType="textMultiLine"
+                android:padding="20dp" />
+
+    </RelativeLayout>
+
+</ScrollView>

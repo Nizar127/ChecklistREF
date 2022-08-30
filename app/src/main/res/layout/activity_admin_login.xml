@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splashname"
+    tools:context=".Authentication.AdminLoginActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    >
+
+
+
+                    <ImageView
+                        android:id="@+id/login_logo"
+                        android:layout_width="250dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="10dp"
+                        android:src="@mipmap/logo" />
+
+
+
+                    <EditText
+                        android:id="@+id/adminlogin_username_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/candyapple"
+                        android:padding="20dp"
+                        android:layout_margin="15dp"
+                        android:hint="Username"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/White"
+                        android:textColorHint="@color/White"
+                        android:textSize="17sp"
+                        android:textStyle="bold"/>
+
+
+                    <EditText
+                        android:id="@+id/adminlogin_id_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/candyapple"
+                        android:padding="20dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:hint="Employee ID"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/White"
+                        android:textColorHint="@color/White"
+                        android:textSize="17sp"
+                        android:textStyle="bold"/>
+
+                    <RadioGroup
+                        android:id="@+id/radioBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:checkedButton="@+id/inspector">
+                        <RadioButton
+                            android:id="@+id/inspector"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Inspector"
+                            android:textColor="@color/White"/>
+                        <RadioButton
+                            android:id="@+id/watchcommander"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Watch Commander"
+                            android:textColor="@color/White"/>
+                    </RadioGroup>
+
+
+
+                    <EditText
+                        android:id="@+id/adminlogin_password_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/candyapple"
+                        android:padding="20dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:hint="Password"
+                        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+                        android:inputType="textFilter"
+                        android:password="true"
+                        android:textColor="@color/Black"
+                        android:textColorHint="@color/White"
+                        android:textSize="17sp"
+                        android:textStyle="bold"/>
+
+
+
+                    <CheckBox
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="Show Password"
+                        android:buttonTint="@color/Gray"
+                        android:textColor="@color/White"
+                        android:layout_marginRight="70dp"
+                        android:layout_marginTop="7dp"
+                        android:id="@+id/login_checkbox"/>
+
+
+                    <Button
+                        android:id="@+id/login_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/linear_layout_1"
+                        android:backgroundTint="@color/Blue"
+                        android:fontFamily="@font/audiowide"
+                        android:layout_margin="10dp"
+                        android:padding="10dp"
+                        android:textSize="25dp"
+                        android:text="Login"
+                        android:textColor="@color/White"/>
+
+
+
+                    <TextView
+                        android:id="@+id/user_login_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Staff Login"
+                        android:textColor="@color/White"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+
+                    <ProgressBar
+                        android:id="@+id/progressbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
+
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Checklist</string>
+    <string name="title">CEFS VEHICLES AND EQUIPMENT CHECKLIST</string>
+    <string name="nametitle">CEFS CHECKLIST</string>
+    <string name="foam_tender">Foam Tender</string>
+    <string name="Registration">Registration Number</string>
+    <string name="Date">Date</string>
+    <string name="foam_capacity">Foam Capacity</string>
+    <string name="water_capacity">Water Capacity</string>
+    <string name="equipment_list">List of Equipment</string>
+    <string name="cabinet_1">Cabinet 1 </string>
+    <string name="cabinet_2">Cabinet 2 </string>
+    <string name="qty">Quantity</string>
+    <string name="shiftA">0800 - 2000</string>
+    <string name="shiftB">2000 - 0800</string>
+    <string name="equip1">CO2 FIRE EXTINGUISHER</string>
+    <string name="equip2">D / P EXTINGUISHER (PORTABLE )</string>
+    <string name="equip3">WATER CURTAIN</string>
+    <string name="equip4">BLITZ FIRE MONITOR</string>
+    <string name="equip5">ADAPTOR 5” SURE LOCK TO 4” SCREW</string>
+    <string name="equip6">ADAPTOR FEMALE SCREW MALE SCREW</string>
+</resources>

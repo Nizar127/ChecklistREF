@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#eeeeee"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/approvalfoamtenderNameView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/foam_tender"
+                android:textColor="@color/Black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/approvalregisNameView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/Registration"
+                android:textColor="@color/DarkSlateGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/approvaldateView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/Date"
+                android:textColor="@color/DarkSlateGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/approvalshiftAView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/shiftA"
+                android:textColor="@color/DarkSlateGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/approvalshiftBView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/shiftB"
+                android:textColor="@color/DarkSlateGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/approvalfoamcapacityView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/foam_capacity"
+                android:textColor="@color/DarkSlateGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/approvalwatercapacityView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="@string/water_capacity"
+                android:textColor="@color/DarkSlateGray"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/approvalview_equipment_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear_layout_1"
+                android:backgroundTint="@color/splashname"
+                android:fontFamily="@font/allerta"
+                android:layout_margin="15dp"
+                android:padding="12dp"
+                android:textSize="18dp"
+                android:text="View Equipment List"
+                android:textColor="@color/White"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
