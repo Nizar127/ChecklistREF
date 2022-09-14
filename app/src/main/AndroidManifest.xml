@@ -9,18 +9,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Checklist">
-        <activity android:name=".CompleteActivity"></activity>
-        <activity android:name=".ApprovalEquipmentChecklist" />
-        <activity android:name=".EquipmentDetailChecklistActivity" />
-        <activity android:name=".NextFormUpload" />
-        <activity android:name=".AdminDashboardActivity" />
-        <activity android:name=".AdminApprovalActivity" />
-        <activity android:name=".AuthenticationActivity" />
-        <activity android:name=".InsertDataActivity" />
-        <activity android:name=".Authentication.AdminLoginActivity" />
-        <activity android:name=".Authentication.SignUpActivity" />
-        <activity android:name=".Authentication.LoginActivity" />
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".ApprovalName"></activity>
+        <activity android:name=".ApprovalEquipmentInspectDetails" />
+        <activity android:name=".EquipmentDetailApproval" />
+        <activity android:name=".signup" />
+        <activity
+            android:name=".CompleteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ApprovalEquipmentChecklist"
+            android:exported="true" />
+        <activity
+            android:name=".EquipmentDetailChecklistActivity"
+            android:exported="true" />
+        <activity
+            android:name=".NextFormUpload"
+            android:exported="true" />
+        <activity
+            android:name=".AdminDashboardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AdminApprovalActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AuthenticationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".InsertDataActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Authentication.AdminLoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Authentication.SignUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Authentication.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

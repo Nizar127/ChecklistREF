@@ -10,6 +10,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_add_new_product"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/splashname">
+
+                <ImageView
+                    android:id="@+id/back_btn_add_signupmain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/the_arrow_back" />
+
+            </androidx.appcompat.widget.Toolbar>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,12 +52,22 @@
                     android:layout_marginBottom="15dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
-                    android:hint="Username"
-                    android:inputType="textPersonName"
+                    android:hint="Your Email"
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/White"
                     android:textColorHint="@color/White"
                     android:textSize="17sp"
                     android:textStyle="bold"/>
+
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="Designation"
+                    android:outlineSpotShadowColor="@color/White"
+                    android:spinnerMode="dropdown" />
+
 
 
                 <EditText
@@ -63,31 +86,31 @@
                     android:textSize="17sp"
                     android:textStyle="bold"/>
 
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:checkedButton="@+id/employeesignup">
-                    <RadioButton
-                        android:id="@+id/inspectorsignup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Inspector"
-                        android:textColor="@color/White"/>
-                    <RadioButton
-                        android:id="@+id/watchcommandersignup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Watch Commander"
-                        android:textColor="@color/White"/>
-                    <RadioButton
-                        android:id="@+id/employeesignup"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Other Employee"
-                        android:textColor="@color/White"/>
-                </RadioGroup>
+<!--                <RadioGroup-->
+<!--                    android:id="@+id/radioGroup"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="10dp"-->
+<!--                    android:checkedButton="@+id/employeesignup">-->
+<!--                    <RadioButton-->
+<!--                        android:id="@+id/inspectorsignup"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Inspector"-->
+<!--                        android:textColor="@color/White"/>-->
+<!--                    <RadioButton-->
+<!--                        android:id="@+id/watchcommandersignup"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Watch Commander"-->
+<!--                        android:textColor="@color/White"/>-->
+<!--                    <RadioButton-->
+<!--                        android:id="@+id/otheremployeesignup"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Other Employee"-->
+<!--                        android:textColor="@color/White"/>-->
+<!--                </RadioGroup>-->
 
 
 
@@ -104,7 +127,7 @@
                     android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
                     android:inputType="textFilter"
                     android:password="true"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/White"
                     android:textColorHint="@color/White"
                     android:textSize="17sp"
                     android:textStyle="bold"/>

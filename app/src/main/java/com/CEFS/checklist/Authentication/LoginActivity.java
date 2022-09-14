@@ -6,20 +6,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.CEFS.checklist.AdminDashboardActivity;
+import com.CEFS.checklist.AuthenticationActivity;
 import com.CEFS.checklist.MainActivity;
 import com.CEFS.checklist.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,20 +39,31 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.ContentValues.TAG;
+
 public class LoginActivity extends AppCompatActivity {
 
     Button loginButton;
-    EditText username, pass, empId;
+    EditText username, pass,empId;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     CheckBox showpass;
-    DatabaseReference mBase;
+    DatabaseReference mBase, spinnerRef;
     TextView forgotPass, adminLogin;
     FirebaseAuth.AuthStateListener mAuthstate;
+    ImageView backBTN;
+    String userID,theempId,thedesignation;
+    Spinner spinner;
+    List<String> names;
+    ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +72,11 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mBase = FirebaseDatabase.getInstance().getReference("Employee");
+
+        userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        spinner = findViewById(R.id.spinnerlogin);
+        names = new ArrayList<>();
 
         loginButton = findViewById(R.id.login_btn);
         username = findViewById(R.id.login_username_input);
@@ -64,6 +87,15 @@ public class LoginActivity extends AppCompatActivity {
         showpass = findViewById(R.id.login_checkbox);
         forgotPass = findViewById(R.id.forget_password_link);
         adminLogin = findViewById(R.id.admin_login_btn);
+        backBTN    = findViewById(R.id.back_btn_add_main);
+
+        backBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, AuthenticationActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //admin login
         adminLogin.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +106,38 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        spinnerRef = FirebaseDatabase.getInstance().getReference("Designation");
+        spinnerRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                for(DataSnapshot childSnapshot:snapshot.getChildren()){
+                    String spinnerName = childSnapshot.child("name").getValue(String.class);
+                    names.add(spinnerName);
+                }
+
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(LoginActivity.this, android.R.layout.simple_spinner_dropdown_item, names);
+                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinner.setAdapter(arrayAdapter);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ((TextView)adapterView.getChildAt(0)).setTextColor(Color.WHITE);
+                thedesignation = spinner.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         //show password
         showpass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -152,6 +216,9 @@ public class LoginActivity extends AppCompatActivity {
         email = username.getText().toString();
         password = pass.getText().toString();
         employeeID = empId.getText().toString();
+        thedesignation = spinner.getSelectedItem().toString();
+        Log.d(TAG, "loginUser: "+thedesignation);
+
 
         // Validations for input email and password
         if (TextUtils.isEmpty(email)) {
@@ -176,68 +243,58 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        Query newRef = mBase.orderByChild("Employee_ID").equalTo(employeeID);
 
-
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        newRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    // show the visibility of progress bar to show loading
-                    progressBar.setVisibility(View.VISIBLE);
-                    Toast.makeText(getApplicationContext(),
-                            "Registration successful!",
-                            Toast.LENGTH_LONG)
-                            .show();
-                    String ResultID = task.getResult().getUser().getUid();
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    String ID = snapshot.child(employeeID).child("Employee_ID").getValue(String.class);
 
-                    //DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("Employee").child(ResultID).child("EmployeeID");
+                    if(ID.equals(employeeID)){
+                        String nameFromDB = snapshot.child(employeeID).child("Email").getValue(String.class);
+                        String designationFromDB = snapshot.child(employeeID).child("Designation").getValue(String.class);
+                        String employeeIDFromDB = snapshot.child(employeeID).child("Employee_ID").getValue(String.class);
 
-                    //check if the employee ID is match
-                    mBase.child(ResultID).child("EmployeeID").equalTo(employeeID).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
-                            if(snapshot.exists()){
-                                // hide the progress bar
-                                progressBar.setVisibility(View.GONE);
-                                Intent intent
-                                        = new Intent(LoginActivity.this,
-                                        MainActivity.class);
-                                startActivity(intent);
-                            }else{
+                        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
+                               if(task.isSuccessful()){
+                                   Toast.makeText(getApplicationContext(),
+                                           "Login successful!",
+                                           Toast.LENGTH_LONG)
+                                           .show();
+                                   Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                   intent.putExtra("Email", nameFromDB);
+                                   intent.putExtra("Designation", designationFromDB);
+                                   intent.putExtra("Employee_ID", employeeIDFromDB);
+                                   startActivity(intent);
+                               }else{
+
+
+                                       // Registration failed
+                                       Toast.makeText(
+                                               getApplicationContext(),
+                                               "Registration failed!!"
+                                                       + " Please try again later",
+                                               Toast.LENGTH_LONG)
+                                               .show();
+
+
+                               }
 
                             }
-                        }
+                        });
 
-                        @Override
-                        public void onCancelled(@NonNull @NotNull DatabaseError error) {
-
-                        }
-                    });
-
-
-                    //if(mBase.child(ResultID).child("isActive").equals(false)){
-                       // Toast.makeText(getApplicationContext(), "Login failed!!" + " Please try again later", Toast.LENGTH_LONG).show();
-                   // }
-
-
-
-                    // if the user created intent to login activity
-
-                }
-                else {
-
-                    // Registration failed
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Registration failed!!"
-                                    + " Please try again later",
-                            Toast.LENGTH_LONG)
-                            .show();
-
-                    // hide the progress bar
-                    progressBar.setVisibility(View.GONE);
+                    }
                 }
             }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
         });
+
     }
 }

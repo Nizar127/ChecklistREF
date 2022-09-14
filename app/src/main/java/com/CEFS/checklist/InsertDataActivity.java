@@ -14,8 +14,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.CEFS.checklist.Model.FomData;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,14 +30,17 @@ public class InsertDataActivity extends AppCompatActivity {
 
 
     private String foam_form, regNum_form, date_check,foamcapacity, watercapacity, cabinet_form, equipment, quantity, firstShift, secondShift, saveCurrentDate, saveCurrentTime, productRandomKey, downloadImgUrl;
-    private Button addNewProdBtn;
+    String mainFormID = "";
+    MaterialButton addNewProdBtn, equipment_list;
     private ImageView backBtn;
     //TextView dhikrID;
     String userID = "";
-    private EditText foamtndr, reg_num, date, foam_capacity, water_capacity, cabinet, equipment_list, qty, shiftA, shiftB;
+    String key;
+    private EditText foamtndr, reg_num, date, foam_capacity, water_capacity, cabinet,  qty, shiftA, shiftB;
     private static final int GalleryPick = 1;
-    private DatabaseReference DoaRef;
+    private DatabaseReference EquipRef;
     private ProgressDialog loadingBar;
+    FomData formdata;
     
 
     @Override
@@ -45,16 +50,17 @@ public class InsertDataActivity extends AppCompatActivity {
 
         foamtndr       = findViewById(R.id.foam_tender);
         reg_num        = findViewById(R.id.registration_number);
-        date           = findViewById(R.id.foamcapacity);
+        date           = findViewById(R.id.dateItem);
+        foam_capacity  = findViewById(R.id.foamcapacity);
         water_capacity = findViewById(R.id.watercapacity);
-        cabinet        = findViewById(R.id.cabinet);
-        equipment_list = findViewById(R.id.equipmentList);
-        qty            = findViewById(R.id.quantity);
-        shiftA         = findViewById(R.id.shiftA);
-        shiftB         = findViewById(R.id.shiftB);
-        addNewProdBtn  = findViewById(R.id.addNewProduct);
+        formdata = new FomData();
 
-        DoaRef = FirebaseDatabase.getInstance().getReference().child("Doa_List");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        key = database.getReference("Checklist").push().getKey();
+
+        addNewProdBtn  = findViewById(R.id.nextBtnUpload);
+
+        EquipRef = FirebaseDatabase.getInstance().getReference().child("Checklist").child("For_Review");
         backBtn        = findViewById(R.id.back_btn_add_new);
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,41 +87,25 @@ public class InsertDataActivity extends AppCompatActivity {
         date_check = date.getText().toString().trim();
         foamcapacity = foam_capacity.getText().toString().trim();
         watercapacity = water_capacity.getText().toString().trim();
-        cabinet_form = cabinet.getText().toString().trim();
-        equipment = equipment_list.getText().toString().trim();
-        quantity = qty.getText().toString().trim();
-        firstShift = shiftA.getText().toString().trim();
-        secondShift = shiftB.getText().toString().trim();
+
+
+        //mainFormID = FirebaseDatabase.getInstance().getReference("Equipment_List").getKey();
+        //Log.d(TAG, "Key: "+mainFormID);
 
         if (TextUtils.isEmpty(foam_form)) {
-            Toast.makeText(this, "Doa name required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Form Tender required", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(regNum_form)) {
-            Toast.makeText(this, "Doa translate description required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Registration Number required", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(date_check)) {
-            Toast.makeText(this, "Translation name required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Date is required", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(foamcapacity)) {
-            Toast.makeText(this, "Translation name required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Foam Capacity required", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(watercapacity)) {
-            Toast.makeText(this, "Translation name required", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(cabinet_form)) {
-            Toast.makeText(this, "Translation name required", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(equipment)) {
-            Toast.makeText(this, "Translation name required", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(quantity)) {
-            Toast.makeText(this, "Translation name required", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(firstShift)) {
-            Toast.makeText(this, "Translation name required", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(secondShift)) {
-            Toast.makeText(this, "Translation name required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Water Capacity required", Toast.LENGTH_SHORT).show();
         }
         else {
             StoreProductInformation();
@@ -123,53 +113,25 @@ public class InsertDataActivity extends AppCompatActivity {
     }
 
     private void StoreProductInformation() {
-        loadingBar.setTitle("Adding New Product");
+        loadingBar.setTitle("Adding New Checklist");
         loadingBar.setMessage("Please wait...");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();
 
-        //Calendar calendar = Calendar.getInstance();
-
-        //SimpleDateFormat currentDate = new SimpleDateFormat("MMM dd, yyyy");
-        // saveCurrentDate = currentDate.format(calendar.getTime());
-
-        //SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
-        //saveCurrentTime = currentTime.format(calendar.getTime());
-
-        //To create a unique product random key, so that it doesn't overwrite other product
-        //productRandomKey = saveCurrentDate + saveCurrentTime;
-
-        //set ID
-        //doaID = UUID.randomUUID().toString();
-        //String zikirID = dhikrID.getText().toString();
-        //Log.d(TAG, "ZikirID: "+doaID);
-
-        userID = getIntent().getIntExtra("");
-
-        //put it into database
-        HashMap<String, Object> doaMap = new HashMap<>();
-        doaMap.put("DoaID", doaID);
-        doaMap.put("title", name);
-        doaMap.put("titleTranslate", doatranslate);
-        doaMap.put("translation", translate);
-
-        DoaRef.child(doaID).updateChildren(doaMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Log.d(TAG, "Add Zikr: ");
-                    Toast.makeText(InsertDoa.this,"Doa Added", Toast.LENGTH_LONG).show();
-
-                    Intent intent = new Intent(InsertDoa.this, AddMenu.class);
-                    startActivity(intent);
-
-                }
-                else {
-                    loadingBar.dismiss();
-                    String message = task.getException().toString();
-                    Toast.makeText(InsertDoa.this, "Error: " + message, Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        Intent intent = new Intent(InsertDataActivity.this, NextFormUpload.class);
+       // intent.putExtra("form_id", formdata.getID());
+        intent.putExtra("form_id", key);
+//        intent.putExtra("Form_tender", formdata.getFoam_tender());
+//        intent.putExtra("Registration_Number", formdata.getRegistration_num());
+//        intent.putExtra("Date", formdata.getDate());
+//        intent.putExtra("Water_Capacity", formdata.getWater_capacity());
+//        intent.putExtra("Foam_Capacity", formdata.getFoam_capacity());
+//        intent.putExtra("Cabinet", formdata.getCabinet_type());
+        intent.putExtra("Form_tender", foam_form);
+        intent.putExtra("Registration_Number", regNum_form);
+        intent.putExtra("Date", date_check);
+        intent.putExtra("Water_Capacity", watercapacity);
+        intent.putExtra("Foam_Capacity", foamcapacity);
+        startActivity(intent);
     }
 }

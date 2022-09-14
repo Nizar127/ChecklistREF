@@ -28,20 +28,40 @@ public class MainActivity extends AppCompatActivity {
     FomData formdata;
     DatabaseReference mFormRef;
     AddFormAdapter addFormAdapter;
+    String key;
     String UserID = "";
-
+    String email = "";
+    String employeeID = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         UserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         Log.d(TAG, "UserID: "+UserID);
 
-        mFormRef = FirebaseDatabase.getInstance().getReference("Checklist").child(UserID).child("new");
+        key = FirebaseDatabase.getInstance().getReference("Checklist").getKey();
+        Log.d(TAG, "Form Key: "+key);
+
+        email = getIntent().getStringExtra("Email");
+        employeeID = getIntent().getStringExtra("Employee_ID");
+
+        mFormRef = FirebaseDatabase.getInstance().getReference("Checklist").child("For Review");
+        Log.d(TAG, "FormRef: "+mFormRef);
         checklistRecyclerView = findViewById(R.id.taskFormListRecyclerview);
+        checklistRecyclerView.setHasFixedSize(true);
+        checklistRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         btnForm = findViewById(R.id.floatingBtn);
+        FirebaseRecyclerOptions<FomData> options
+                = new FirebaseRecyclerOptions.Builder<FomData>()
+                .setQuery(mFormRef, FomData.class)
+                .build();
+        Log.d(TAG, "recyclerview: ");
+
+        addFormAdapter = new AddFormAdapter(options);
+        checklistRecyclerView.setAdapter(addFormAdapter);
 
         btnForm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,15 +78,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        checklistRecyclerView.setHasFixedSize(true);
-        checklistRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        FirebaseRecyclerOptions<FomData> options
-                = new FirebaseRecyclerOptions.Builder<FomData>()
-                .setQuery(mFormRef, FomData.class)
-                .build();
 
-        addFormAdapter = new AddFormAdapter(options);
-        checklistRecyclerView.setAdapter(addFormAdapter);
+
         addFormAdapter.startListening();
     }
 

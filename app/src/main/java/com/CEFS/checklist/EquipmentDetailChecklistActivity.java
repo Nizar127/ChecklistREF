@@ -42,19 +42,19 @@ public class EquipmentDetailChecklistActivity extends AppCompatActivity {
         qty5 = findViewById(R.id.quantity5);
         qty6 = findViewById(R.id.quantity6);
 
-        shift_A1 = findViewById(R.id.shiftA1);
-        shift_A2 = findViewById(R.id.shiftA2);
-        shift_A3 = findViewById(R.id.shiftA3);
-        shift_A4 = findViewById(R.id.shiftA4);
-        shift_A5 = findViewById(R.id.shiftA5);
-        shift_A6 = findViewById(R.id.shiftA6);
+        shift_A1 = findViewById(R.id.shiftA1data);
+        shift_A2 = findViewById(R.id.shiftA2data);
+        shift_A3 = findViewById(R.id.shiftA3data);
+        shift_A4 = findViewById(R.id.shiftA4data);
+        shift_A5 = findViewById(R.id.shiftA5data);
+        shift_A6 = findViewById(R.id.shiftA6data);
 
-        shift_B1 = findViewById(R.id.shiftB1);
-        shift_B2 = findViewById(R.id.shiftB2);
-        shift_B3 = findViewById(R.id.shiftB3);
-        shift_B4 = findViewById(R.id.shiftB4);
-        shift_B5 = findViewById(R.id.shiftB5);
-        shift_B6 = findViewById(R.id.shiftB6);
+        shift_B1 = findViewById(R.id.shiftB1data);
+        shift_B2 = findViewById(R.id.shiftB2data);
+        shift_B3 = findViewById(R.id.shiftB3data);
+        shift_B4 = findViewById(R.id.shiftB4data);
+        shift_B5 = findViewById(R.id.shiftB5data);
+        shift_B6 = findViewById(R.id.shiftB6data);
 
         //equipRef = FirebaseDatabase.getInstance().getReference("equipment_checklist").child("equipmentList");
 
@@ -75,7 +75,7 @@ public class EquipmentDetailChecklistActivity extends AppCompatActivity {
     }
 
     private void getequipment(String equipID) {
-        equipRef = FirebaseDatabase.getInstance().getReference("Equipment_List").child("equipmentList");
+        equipRef = FirebaseDatabase.getInstance().getReference("Checklist").child("For Review").child(equipID);
 
         equipRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -85,26 +85,26 @@ public class EquipmentDetailChecklistActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull @NotNull DataSnapshot datasnapshot) {
 
-                        Object quantity_1 = datasnapshot.child(equipID).child("Quantity1").getValue();
-                        Object quantity_2 = datasnapshot.child(equipID).child("Quantity2").getValue();
-                        Object quantity_3 = datasnapshot.child(equipID).child("Quantity3").getValue();
-                        Object quantity_4 = datasnapshot.child(equipID).child("Quantity4").getValue();
-                        Object quantity_5 = datasnapshot.child(equipID).child("Quantity5").getValue();
-                        Object quantity_6 = datasnapshot.child(equipID).child("Quantity6").getValue();
+                        String quantity_1 = datasnapshot.child(equipID).child("Quantity1").getValue(String.class);
+                        String quantity_2 = datasnapshot.child(equipID).child("Quantity2").getValue(String.class);
+                        String quantity_3 = datasnapshot.child(equipID).child("Quantity3").getValue(String.class);
+                        String quantity_4 = datasnapshot.child(equipID).child("Quantity4").getValue(String.class);
+                        String quantity_5 = datasnapshot.child(equipID).child("Quantity5").getValue(String.class);
+                        String quantity_6 = datasnapshot.child(equipID).child("Quantity6").getValue(String.class);
 
-                        Object newshiftA1 = datasnapshot.child(equipID).child("shift1A").getValue();
-                        Object newshiftA2 = datasnapshot.child(equipID).child("shift2A").getValue();
-                        Object newshiftA3 = datasnapshot.child(equipID).child("shift3A").getValue();
-                        Object newshiftA4 = datasnapshot.child(equipID).child("shift4A").getValue();
-                        Object newshiftA5 = datasnapshot.child(equipID).child("shift5A").getValue();
-                        Object newshiftA6 = datasnapshot.child(equipID).child("shift6A").getValue();
+                        String newshiftA1 = datasnapshot.child(equipID).child("ShiftA1").getValue(String.class);
+                        String newshiftA2 = datasnapshot.child(equipID).child("Shift2A").getValue(String.class);
+                        String newshiftA3 = datasnapshot.child(equipID).child("Shift3A").getValue(String.class);;
+                        String newshiftA4 = datasnapshot.child(equipID).child("Shift4A").getValue(String.class);
+                        String newshiftA5 = datasnapshot.child(equipID).child("Shift5A").getValue(String.class);
+                        String newshiftA6 = datasnapshot.child(equipID).child("Shift6A").getValue(String.class);
 
-                        Object newshiftB1 = datasnapshot.child(equipID).child("shift1B").getValue();
-                        Object newshiftB2 = datasnapshot.child(equipID).child("shift2B").getValue();
-                        Object newshiftB3 = datasnapshot.child(equipID).child("shift3B").getValue();
-                        Object newshiftB4 = datasnapshot.child(equipID).child("shift4B").getValue();
-                        Object newshiftB5 = datasnapshot.child(equipID).child("shift5B").getValue();
-                        Object newshiftB6 = datasnapshot.child(equipID).child("shift6B").getValue();
+                        String newshiftB1 = datasnapshot.child(equipID).child("ShiftB1").getValue(String.class);
+                        String newshiftB2 = datasnapshot.child(equipID).child("ShiftB2").getValue(String.class);
+                        String newshiftB3 = datasnapshot.child(equipID).child("ShiftB3").getValue(String.class);
+                        String newshiftB4 = datasnapshot.child(equipID).child("ShiftB4").getValue(String.class);
+                        String newshiftB5 = datasnapshot.child(equipID).child("ShiftB5").getValue(String.class);
+                        String newshiftB6 = datasnapshot.child(equipID).child("ShiftB6").getValue(String.class);
 
 
                         qty1.setText(quantity_1.toString());

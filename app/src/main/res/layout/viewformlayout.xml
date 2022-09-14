@@ -46,25 +46,6 @@
                 android:textColor="@color/DarkSlateGray"
                 android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/shiftAView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="@font/allerta"
-                android:text="@string/shiftA"
-                android:textColor="@color/DarkSlateGray"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/shiftBView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:fontFamily="@font/allerta"
-                android:text="@string/shiftB"
-                android:textColor="@color/DarkSlateGray"
-                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/foamcapacityView"

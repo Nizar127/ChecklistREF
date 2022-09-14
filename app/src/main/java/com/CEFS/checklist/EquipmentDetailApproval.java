@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
-public class ApprovalEquipmentChecklist extends AppCompatActivity {
+public class EquipmentDetailApproval extends AppCompatActivity {
 
     TextView qty1,qty2, qty3, qty4, qty5, qty6;
     TextView shift_A1,shift_A2,shift_A3,shift_A4, shift_A5, shift_A6;
@@ -28,12 +27,11 @@ public class ApprovalEquipmentChecklist extends AppCompatActivity {
     String equipID = "";
     ImageView backbtn;
     DatabaseReference equipRef;
-    Button approveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_approval_equipment_checklist);
+        setContentView(R.layout.activity_equipment_detail_approval);
 
         qty1 = findViewById(R.id.quantity1);
         qty2 = findViewById(R.id.quantity2);
@@ -42,23 +40,22 @@ public class ApprovalEquipmentChecklist extends AppCompatActivity {
         qty5 = findViewById(R.id.quantity5);
         qty6 = findViewById(R.id.quantity6);
 
-        shift_A1 = findViewById(R.id.shiftA1);
-        shift_A2 = findViewById(R.id.shiftA2);
-        shift_A3 = findViewById(R.id.shiftA3);
-        shift_A4 = findViewById(R.id.shiftA4);
-        shift_A5 = findViewById(R.id.shiftA5);
-        shift_A6 = findViewById(R.id.shiftA6);
+        shift_A1 = findViewById(R.id.shiftA1data);
+        shift_A2 = findViewById(R.id.shiftA2data);
+        shift_A3 = findViewById(R.id.shiftA3data);
+        shift_A4 = findViewById(R.id.shiftA4data);
+        shift_A5 = findViewById(R.id.shiftA5data);
+        shift_A6 = findViewById(R.id.shiftA6data);
 
-        shift_B1 = findViewById(R.id.shiftB1);
-        shift_B2 = findViewById(R.id.shiftB2);
-        shift_B3 = findViewById(R.id.shiftB3);
-        shift_B4 = findViewById(R.id.shiftB4);
-        shift_B5 = findViewById(R.id.shiftB5);
-        shift_B6 = findViewById(R.id.shiftB6);
+        shift_B1 = findViewById(R.id.shiftB1data);
+        shift_B2 = findViewById(R.id.shiftB2data);
+        shift_B3 = findViewById(R.id.shiftB3data);
+        shift_B4 = findViewById(R.id.shiftB4data);
+        shift_B5 = findViewById(R.id.shiftB5data);
+        shift_B6 = findViewById(R.id.shiftB6data);
 
         //equipRef = FirebaseDatabase.getInstance().getReference("equipment_checklist").child("equipmentList");
 
-        approveBtn = findViewById(R.id.approve_view_equipment_btn);
         equipID = getIntent().getStringExtra("EquipmentID");
 
         getequipment(equipID);
@@ -67,24 +64,14 @@ public class ApprovalEquipmentChecklist extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ApprovalEquipmentChecklist.this, AdminApprovalActivity.class);
+                Intent intent = new Intent(EquipmentDetailApproval.this, MainActivity.class);
                 startActivity(intent);
             }
         });
-
-        approveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ApprovalEquipmentChecklist.this, ApprovalName.class);
-                intent.putExtra("ApprovalID",equipID);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void getequipment(String equipID) {
-        equipRef = FirebaseDatabase.getInstance().getReference("Equipment_List").child("equipmentList");
+        equipRef = FirebaseDatabase.getInstance().getReference("Checklist").child(equipID).child("Watch_Commander_Approval");
 
         equipRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -101,19 +88,19 @@ public class ApprovalEquipmentChecklist extends AppCompatActivity {
                             Object quantity_5 = datasnapshot.child(equipID).child("Quantity5").getValue();
                             Object quantity_6 = datasnapshot.child(equipID).child("Quantity6").getValue();
 
-                            Object newshiftA1 = datasnapshot.child(equipID).child("shift1A").getValue();
+                            Object newshiftA1 = datasnapshot.child(equipID).child("ShiftA1").getValue();
                             Object newshiftA2 = datasnapshot.child(equipID).child("shift2A").getValue();
                             Object newshiftA3 = datasnapshot.child(equipID).child("shift3A").getValue();
                             Object newshiftA4 = datasnapshot.child(equipID).child("shift4A").getValue();
                             Object newshiftA5 = datasnapshot.child(equipID).child("shift5A").getValue();
                             Object newshiftA6 = datasnapshot.child(equipID).child("shift6A").getValue();
 
-                            Object newshiftB1 = datasnapshot.child(equipID).child("shift1B").getValue();
-                            Object newshiftB2 = datasnapshot.child(equipID).child("shift2B").getValue();
-                            Object newshiftB3 = datasnapshot.child(equipID).child("shift3B").getValue();
-                            Object newshiftB4 = datasnapshot.child(equipID).child("shift4B").getValue();
-                            Object newshiftB5 = datasnapshot.child(equipID).child("shift5B").getValue();
-                            Object newshiftB6 = datasnapshot.child(equipID).child("shift6B").getValue();
+                            Object newshiftB1 = datasnapshot.child(equipID).child("ShiftB1").getValue();
+                            Object newshiftB2 = datasnapshot.child(equipID).child("ShiftB2").getValue();
+                            Object newshiftB3 = datasnapshot.child(equipID).child("ShiftB3").getValue();
+                            Object newshiftB4 = datasnapshot.child(equipID).child("ShiftB4").getValue();
+                            Object newshiftB5 = datasnapshot.child(equipID).child("ShiftB5").getValue();
+                            Object newshiftB6 = datasnapshot.child(equipID).child("ShiftB6").getValue();
 
 
                             qty1.setText(quantity_1.toString());
@@ -146,6 +133,5 @@ public class ApprovalEquipmentChecklist extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

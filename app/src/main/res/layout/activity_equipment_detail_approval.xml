@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eeeeee"
-    tools:context=".EquipmentDetailChecklistActivity">
+    tools:context=".EquipmentDetailApproval">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -114,7 +113,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftA1data"
+                                    android:id="@+id/shiftA1dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -143,7 +142,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftB1data"
+                                    android:id="@+id/shiftB1dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -221,7 +220,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftA2data"
+                                    android:id="@+id/shiftA2dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -250,7 +249,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftB2data"
+                                    android:id="@+id/shiftB2dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -327,7 +326,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftA3data"
+                                    android:id="@+id/shiftA3dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -356,7 +355,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftB3data"
+                                    android:id="@+id/shiftB3dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -433,7 +432,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftA4data"
+                                    android:id="@+id/shiftA4dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -462,7 +461,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftB4data"
+                                    android:id="@+id/shiftB4dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -539,7 +538,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftA5data"
+                                    android:id="@+id/shiftA5dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -568,7 +567,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftB5data"
+                                    android:id="@+id/shiftB5dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -645,7 +644,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftA6data"
+                                    android:id="@+id/shiftA6dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -674,7 +673,7 @@
                                     android:textColorHint="#070707"/>
 
                                 <TextView
-                                    android:id="@+id/shiftB6data"
+                                    android:id="@+id/shiftB6dataapproval"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_below="@+id/equipmentList"
@@ -689,10 +688,23 @@
 
                     </TableLayout>
 
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/approve"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/equipment6"
+                        android:layout_margin="10dp"
+                        android:backgroundTint="@color/splashname"
+                        android:padding="20dp"
+                        android:text="Approve"
+                        android:textAllCaps="false"
+                        android:textColor="@color/White"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="20dp" />
                 </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

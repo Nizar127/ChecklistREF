@@ -51,7 +51,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/allerta"
-                android:text="Need to do separate page just for equipment list with qty underneath"
+                android:text="Fill Quantity at Next Page"
+                android:gravity="center"
                 android:textColor="@color/splashname"
                 android:textSize="20sp" />
 
@@ -59,7 +60,7 @@
                 android:id="@+id/foam_tender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/dhikrNameID"
+                android:layout_below="@+id/userNameID"
                 android:layout_margin="10dp"
                 android:background="@drawable/input_design"
                 android:hint="@string/foam_tender"
@@ -110,23 +111,13 @@
                 android:inputType="numberDecimal"
                 android:padding="20dp" />
 
-        <EditText
-            android:id="@+id/cabinet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/watercapacity"
-            android:layout_margin="10dp"
-            android:background="@drawable/input_design"
-            android:hint="Cabinet"
-            android:inputType="numberDecimal"
-            android:padding="20dp" />
 
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/nextBtnUpload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/cabinet"
+            android:layout_below="@+id/watercapacity"
             android:layout_margin="10dp"
             android:backgroundTint="@color/splashname"
             android:padding="20dp"
@@ -138,16 +129,6 @@
             app:cornerRadius="20dp" />
 
 
-        <EditText
-                android:id="@+id/equipmentList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/cabinet"
-                android:layout_margin="10dp"
-                android:background="@drawable/input_design"
-                android:hint="@string/equipment_list"
-                android:inputType="textMultiLine"
-                android:padding="20dp" />
 
     </RelativeLayout>
 

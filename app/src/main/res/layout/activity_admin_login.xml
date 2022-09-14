@@ -12,7 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_add_new_product"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/splashname">
 
+            <ImageView
+                android:id="@+id/back_btn_adminlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/the_arrow_back" />
+
+        </androidx.appcompat.widget.Toolbar>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -38,8 +50,8 @@
                         android:backgroundTint="@color/candyapple"
                         android:padding="20dp"
                         android:layout_margin="15dp"
-                        android:hint="Username"
-                        android:inputType="textPersonName"
+                        android:hint="Your Email"
+                        android:inputType="textEmailAddress"
                         android:textColor="@color/White"
                         android:textColorHint="@color/White"
                         android:textSize="17sp"
@@ -62,26 +74,15 @@
                         android:textSize="17sp"
                         android:textStyle="bold"/>
 
-                    <RadioGroup
-                        android:id="@+id/radioBtn"
+
+
+                    <Spinner
+                        android:id="@+id/spinneradminlogin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:checkedButton="@+id/inspector">
-                        <RadioButton
-                            android:id="@+id/inspector"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Inspector"
-                            android:textColor="@color/White"/>
-                        <RadioButton
-                            android:id="@+id/watchcommander"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Watch Commander"
-                            android:textColor="@color/White"/>
-                    </RadioGroup>
-
+                        android:autofillHints="Designation"
+                        android:outlineSpotShadowColor="@color/White"
+                        android:spinnerMode="dropdown" />
 
 
                     <EditText

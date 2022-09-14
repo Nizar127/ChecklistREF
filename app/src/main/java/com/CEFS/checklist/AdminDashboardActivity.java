@@ -21,6 +21,9 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
     String userID;
     String TAG = "";
+    String email = "";
+    String employeeID = "";
+    String userdesignation = "";
     BottomNavigationView bottomtabmenu;
     DatabaseReference ref, checkData, testOil, testdistance;
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
@@ -33,6 +36,10 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
         userID = fAuth.getCurrentUser().getUid();
         Log.d(TAG, "query:"+ userID);
+
+        email = getIntent().getStringExtra("Email");
+        employeeID = getIntent().getStringExtra("Employee_ID");
+        userdesignation = getIntent().getStringExtra("Designation");
 
         ref = FirebaseDatabase.getInstance().getReference("User").child(userID);
 

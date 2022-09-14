@@ -34,7 +34,7 @@ public class CompleteActivity extends AppCompatActivity {
         UserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         Log.d(TAG, "UserID: "+UserID);
 
-        mFormRef = FirebaseDatabase.getInstance().getReference("Checklist").child(UserID).child("Completed");
+        mFormRef = FirebaseDatabase.getInstance().getReference("Checklist").child(UserID).child("Approved");
         checklistRecyclerView = findViewById(R.id.completetaskFormListRecyclerview);
 
         formdata = new FomData();

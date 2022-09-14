@@ -16,7 +16,7 @@
         android:background="@color/splashname">
 
         <ImageView
-            android:id="@+id/back_btn_add_new"
+            android:id="@+id/back_btn_add_to_form"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/the_arrow_back" />
@@ -41,11 +41,46 @@
     </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/waklu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/toolbar_add_new_product">
+
+            <TextView
+                android:id="@+id/cabinetType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="Cabinet: "
+                android:textColor="@color/splashname"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/cabinetTypeA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="A "
+                android:textColor="@color/splashname"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/equipment1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_below="@+id/toolbar_add_new_product"
+            android:layout_below="@+id/waklu"
             android:orientation="vertical">
 
             <TextView
@@ -72,43 +107,77 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/quantity1"
+                        android:id="@+id/quantityfirstequipment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/equipmentList"
                         android:layout_margin="8dp"
                         android:background="@drawable/input_design"
                         android:hint="@string/qty"
-                        android:inputType="textMultiLine"
+                        android:inputType="number"
                         android:padding="17dp" />
 
-                    <EditText
-                        android:id="@+id/shiftA1"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftA"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
 
+                        <TextView
+                            android:id="@+id/shift1firstequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="0800-2000: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
 
-                    <EditText
-                        android:id="@+id/shiftB1"
+                        <Spinner
+                            android:id="@+id/spinnerfirstequipmentshift1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftB"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:id="@+id/shift2firstequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="2000-0800: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerfirstequipmentshift2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+
                 </TableRow>
 
             </TableLayout>
 
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/equipment2"
@@ -143,38 +212,71 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/quantity2"
+                        android:id="@+id/quantitysecondequipment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/equipmentList"
                         android:layout_margin="8dp"
                         android:background="@drawable/input_design"
                         android:hint="@string/qty"
-                        android:inputType="textMultiLine"
+                        android:inputType="number"
                         android:padding="17dp" />
 
-                    <EditText
-                        android:id="@+id/shiftA2"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftA"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
 
+                        <TextView
+                            android:id="@+id/shift1secondequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="0800-2000: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
 
-                    <EditText
-                        android:id="@+id/shiftB2"
+                        <Spinner
+                            android:id="@+id/spinnersecondequipmentshift1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftB"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:id="@+id/shift2secondequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="2000-0800: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnersecondequipmentshift2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+
                 </TableRow>
 
             </TableLayout>
@@ -203,8 +305,8 @@
                 android:textSize="20sp" />
 
             <TableLayout
-                android:id="@+id/tbl_equip3"
-                android:layout_below="@+id/equip3"
+                android:id="@+id/tbl_equip12"
+                android:layout_below="@+id/equip1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:stretchColumns="3">
@@ -214,38 +316,71 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/quantity3"
+                        android:id="@+id/quantitythirdequipment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/equipmentList"
                         android:layout_margin="8dp"
                         android:background="@drawable/input_design"
                         android:hint="@string/qty"
-                        android:inputType="textMultiLine"
+                        android:inputType="number"
                         android:padding="17dp" />
 
-                    <EditText
-                        android:id="@+id/shiftA3"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftA"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
 
+                        <TextView
+                            android:id="@+id/shift1thirdequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="0800-2000: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
 
-                    <EditText
-                        android:id="@+id/shiftB3"
+                        <Spinner
+                            android:id="@+id/spinnerthirdequipmentshift1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftB"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:id="@+id/shift2thirdequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="2000-0800: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerthirdequipmentshift2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+
                 </TableRow>
 
             </TableLayout>
@@ -264,7 +399,6 @@
                 android:id="@+id/equip4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/toolbar_add_new_product"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -285,38 +419,71 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/quantity4"
+                        android:id="@+id/quantityfourthequipment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/equipmentList"
                         android:layout_margin="8dp"
                         android:background="@drawable/input_design"
                         android:hint="@string/qty"
-                        android:inputType="textMultiLine"
+                        android:inputType="number"
                         android:padding="17dp" />
 
-                    <EditText
-                        android:id="@+id/shiftA4"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftA"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
 
+                        <TextView
+                            android:id="@+id/shift1fourthequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="0800-2000: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
 
-                    <EditText
-                        android:id="@+id/shiftB4"
+                        <Spinner
+                            android:id="@+id/spinnerfourthequipmentshift1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftB"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:id="@+id/shift2fourthequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="2000-0800: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerfourthequipmentshift2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+
                 </TableRow>
 
             </TableLayout>
@@ -324,10 +491,46 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/cabinetBMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/equipment4">
+
+            <TextView
+                android:id="@+id/cabinetBType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="Cabinet: "
+                android:textColor="@color/splashname"
+                android:textSize="20sp" />
+            <TextView
+                android:id="@+id/cabinetTypeB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/allerta"
+                android:text="B"
+                android:textColor="@color/splashname"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/equipment5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/equipment4"
+            android:layout_below="@+id/cabinetBMain"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -356,38 +559,70 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/quantity5"
+                        android:id="@+id/quantityfifthequipment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
                         android:layout_margin="8dp"
                         android:background="@drawable/input_design"
                         android:hint="@string/qty"
-                        android:inputType="textMultiLine"
+                        android:inputType="number"
                         android:padding="17dp" />
 
-                    <EditText
-                        android:id="@+id/shiftA5"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftA"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
 
+                        <TextView
+                            android:id="@+id/shift1fifthequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="0800-2000: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
 
-                    <EditText
-                        android:id="@+id/shiftB5"
+                        <Spinner
+                            android:id="@+id/spinnerfifthequipmentshift1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftB"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:id="@+id/shift2fifthequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="2000-0800: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnerfifthequipmentshift2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+
                 </TableRow>
 
             </TableLayout>
@@ -417,7 +652,7 @@
 
             <TableLayout
                 android:id="@+id/tbl_equip6"
-                android:layout_below="@+id/equip5"
+                android:layout_below="@+id/equip1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:stretchColumns="3">
@@ -427,38 +662,70 @@
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/quantity6"
+                        android:id="@+id/quantitysixthequipment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
                         android:layout_margin="8dp"
                         android:background="@drawable/input_design"
                         android:hint="@string/qty"
-                        android:inputType="textMultiLine"
+                        android:inputType="number"
                         android:padding="17dp" />
 
-                    <EditText
-                        android:id="@+id/shiftA6"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftA"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
 
+                        <TextView
+                            android:id="@+id/shift1sixthequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="0800-2000: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
 
-                    <EditText
-                        android:id="@+id/shiftB6"
+                        <Spinner
+                            android:id="@+id/spinnersixthequipmentshift1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/equipmentList"
-                        android:layout_margin="8dp"
-                        android:background="@drawable/input_design"
-                        android:hint="@string/shiftB"
-                        android:inputType="textMultiLine"
-                        android:padding="17dp" />
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:id="@+id/shift2sixthequipment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/allerta"
+                            android:text="2000-0800: "
+                            android:textColor="@color/splashname"
+                            android:textSize="15sp" />
+
+                        <Spinner
+                            android:id="@+id/spinnersixthequipmentshift2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="Designation"
+                            android:outlineSpotShadowColor="@color/White"
+                            android:spinnerMode="dropdown" />
+                    </LinearLayout>
+
+
                 </TableRow>
 
             </TableLayout>
