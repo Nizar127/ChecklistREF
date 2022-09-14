@@ -17,6 +17,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/foamtenderView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/allerta"
+                android:text="Foam Tender:"
+                android:textColor="@color/Black"
+                android:textSize="15sp" />
+            <TextView
                 android:id="@+id/foamtenderNameView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,6 +36,15 @@
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/regisView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/allerta"
+                android:text="Registration Number:"
+                android:textColor="@color/Black"
+                android:textSize="15sp" />
+            <TextView
                 android:id="@+id/regisNameView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -34,6 +52,16 @@
                 android:fontFamily="@font/allerta"
                 android:text="@string/Registration"
                 android:textColor="@color/DarkSlateGray"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/thedateView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/allerta"
+                android:text="Date: "
+                android:textColor="@color/Black"
                 android:textSize="15sp" />
 
             <TextView
@@ -46,7 +74,15 @@
                 android:textColor="@color/DarkSlateGray"
                 android:textSize="15sp" />
 
-
+            <TextView
+                android:id="@+id/fcapacityView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/allerta"
+                android:text="Foam Capacity:"
+                android:textColor="@color/Black"
+                android:textSize="15sp" />
             <TextView
                 android:id="@+id/foamcapacityView"
                 android:layout_width="match_parent"
@@ -57,6 +93,15 @@
                 android:textColor="@color/DarkSlateGray"
                 android:textSize="15sp" />
 
+            <TextView
+                android:id="@+id/wcapacityView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:fontFamily="@font/allerta"
+                android:text="Water Capacity:"
+                android:textColor="@color/Black"
+                android:textSize="15sp" />
             <TextView
                 android:id="@+id/watercapacityView"
                 android:layout_width="match_parent"

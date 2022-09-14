@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/SlateGray"
+    android:background="@color/splashname"
     tools:context=".AdminApprovalActivity">
 
 
@@ -39,16 +39,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/White"
             android:layout_margin="10dp"
             android:layout_below="@+id/toolbar_checklist_product">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/approvalFormListRecyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/WhiteSmoke">
 
 
             </androidx.recyclerview.widget.RecyclerView>

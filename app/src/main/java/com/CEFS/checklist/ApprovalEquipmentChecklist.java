@@ -84,7 +84,7 @@ public class ApprovalEquipmentChecklist extends AppCompatActivity {
     }
 
     private void getequipment(String equipID) {
-        equipRef = FirebaseDatabase.getInstance().getReference("Equipment_List").child("equipmentList");
+        equipRef = FirebaseDatabase.getInstance().getReference("Checklist").child("For Review");
 
         equipRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -94,48 +94,84 @@ public class ApprovalEquipmentChecklist extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull @NotNull DataSnapshot datasnapshot) {
 
-                            Object quantity_1 = datasnapshot.child(equipID).child("Quantity1").getValue();
-                            Object quantity_2 = datasnapshot.child(equipID).child("Quantity2").getValue();
-                            Object quantity_3 = datasnapshot.child(equipID).child("Quantity3").getValue();
-                            Object quantity_4 = datasnapshot.child(equipID).child("Quantity4").getValue();
-                            Object quantity_5 = datasnapshot.child(equipID).child("Quantity5").getValue();
-                            Object quantity_6 = datasnapshot.child(equipID).child("Quantity6").getValue();
+                            Object quantity_1 = datasnapshot.child(equipID).child("Quantity_1").getValue();
+                            Object quantity_2 = datasnapshot.child(equipID).child("Quantity_2").getValue();
+                            Object quantity_3 = datasnapshot.child(equipID).child("Quantity_3").getValue();
+                            Object quantity_4 = datasnapshot.child(equipID).child("Quantity_4").getValue();
+                            Object quantity_5 = datasnapshot.child(equipID).child("Quantity_5").getValue();
+                            Object quantity_6 = datasnapshot.child(equipID).child("Quantity_6").getValue();
 
-                            Object newshiftA1 = datasnapshot.child(equipID).child("shift1A").getValue();
-                            Object newshiftA2 = datasnapshot.child(equipID).child("shift2A").getValue();
-                            Object newshiftA3 = datasnapshot.child(equipID).child("shift3A").getValue();
-                            Object newshiftA4 = datasnapshot.child(equipID).child("shift4A").getValue();
-                            Object newshiftA5 = datasnapshot.child(equipID).child("shift5A").getValue();
-                            Object newshiftA6 = datasnapshot.child(equipID).child("shift6A").getValue();
+                            Object newshiftA1 = datasnapshot.child(equipID).child("ShiftA1").getValue();
+                            Object newshiftA2 = datasnapshot.child(equipID).child("ShiftA2").getValue();
+                            Object newshiftA3 = datasnapshot.child(equipID).child("ShiftA3").getValue();
+                            Object newshiftA4 = datasnapshot.child(equipID).child("ShiftA4").getValue();
+                            Object newshiftA5 = datasnapshot.child(equipID).child("ShiftA5").getValue();
+                            Object newshiftA6 = datasnapshot.child(equipID).child("ShiftA6").getValue();
 
-                            Object newshiftB1 = datasnapshot.child(equipID).child("shift1B").getValue();
-                            Object newshiftB2 = datasnapshot.child(equipID).child("shift2B").getValue();
-                            Object newshiftB3 = datasnapshot.child(equipID).child("shift3B").getValue();
-                            Object newshiftB4 = datasnapshot.child(equipID).child("shift4B").getValue();
-                            Object newshiftB5 = datasnapshot.child(equipID).child("shift5B").getValue();
-                            Object newshiftB6 = datasnapshot.child(equipID).child("shift6B").getValue();
+                            Object newshiftB1 = datasnapshot.child(equipID).child("ShiftB1").getValue();
+                            Object newshiftB2 = datasnapshot.child(equipID).child("ShiftB2").getValue();
+                            Object newshiftB3 = datasnapshot.child(equipID).child("ShiftB3").getValue();
+                            Object newshiftB4 = datasnapshot.child(equipID).child("ShiftB4").getValue();
+                            Object newshiftB5 = datasnapshot.child(equipID).child("ShiftB5").getValue();
+                            Object newshiftB6 = datasnapshot.child(equipID).child("ShiftB6").getValue();
 
 
-                            qty1.setText(quantity_1.toString());
-                            qty2.setText(quantity_2.toString());
-                            qty3.setText(quantity_3.toString());
-                            qty4.setText(quantity_4.toString());
-                            qty5.setText(quantity_5.toString());
-                            qty6.setText(quantity_6.toString());
+                            if (quantity_1 != null) {
+                                qty1.setText(quantity_1.toString());
+                            }
+                            if (quantity_2 != null) {
+                                qty2.setText(quantity_2.toString());
+                            }
+                            if (quantity_3 != null) {
+                                qty3.setText(quantity_3.toString());
+                            }
+                            if (quantity_4 != null) {
+                                qty4.setText(quantity_4.toString());
+                            }
+                            if (quantity_5 != null) {
+                                qty5.setText(quantity_5.toString());
+                            }
+                            if (quantity_6 != null) {
+                                qty6.setText(quantity_6.toString());
+                            }
 
-                            shift_A1.setText(newshiftA1.toString());
-                            shift_A2.setText(newshiftA2.toString());
-                            shift_A3.setText(newshiftA3.toString());
-                            shift_A4.setText(newshiftA4.toString());
-                            shift_A5.setText(newshiftA5.toString());
-                            shift_A6.setText(newshiftA6.toString());
+                            if (newshiftA1 != null) {
+                                shift_A1.setText(newshiftA1.toString());
+                            }
+                            if (newshiftA2 != null) {
+                                shift_A2.setText(newshiftA2.toString());
+                            }
+                            if (newshiftA3 != null) {
+                                shift_A3.setText(newshiftA3.toString());
+                            }
+                            if (newshiftA4 != null) {
+                                shift_A4.setText(newshiftA4.toString());
+                            }
+                            if (newshiftA5 != null) {
+                                shift_A5.setText(newshiftA5.toString());
+                            }
+                            if (newshiftA6 != null) {
+                                shift_A6.setText(newshiftA6.toString());
+                            }
 
-                            shift_B1.setText(newshiftB1.toString());
-                            shift_B2.setText(newshiftB2.toString());
-                            shift_B3.setText(newshiftB3.toString());
-                            shift_B4.setText(newshiftB4.toString());
-                            shift_B5.setText(newshiftB5.toString());
-                            shift_B6.setText(newshiftB6.toString());
+                            if (newshiftB1 != null) {
+                                shift_B1.setText(newshiftB1.toString());
+                            }
+                            if (newshiftB2 != null) {
+                                shift_B2.setText(newshiftB2.toString());
+                            }
+                            if (newshiftB3 != null) {
+                                shift_B3.setText(newshiftB3.toString());
+                            }
+                            if (newshiftB4 != null) {
+                                shift_B4.setText(newshiftB4.toString());
+                            }
+                            if (newshiftB5 != null) {
+                                shift_B5.setText(newshiftB5.toString());
+                            }
+                            if (newshiftB6 != null) {
+                                shift_B6.setText(newshiftB6.toString());
+                            }
                         }
 
                         @Override

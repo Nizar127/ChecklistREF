@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
 //        remember = findViewById(R.id.remember_me);
         showpass = findViewById(R.id.login_checkbox);
         forgotPass = findViewById(R.id.forget_password_link);
-        adminLogin = findViewById(R.id.admin_login_btn);
+        //adminLogin = findViewById(R.id.admin_login_btn);
         backBTN    = findViewById(R.id.back_btn_add_main);
 
         backBTN.setOnClickListener(new View.OnClickListener() {
@@ -98,13 +98,13 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //admin login
-        adminLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, AdminDashboardActivity.class);
-                startActivity(intent);
-            }
-        });
+//        adminLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(LoginActivity.this, AdminDashboardActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         spinnerRef = FirebaseDatabase.getInstance().getReference("Designation");
         spinnerRef.addValueEventListener(new ValueEventListener() {
@@ -256,6 +256,12 @@ public class LoginActivity extends AppCompatActivity {
                         String designationFromDB = snapshot.child(employeeID).child("Designation").getValue(String.class);
                         String employeeIDFromDB = snapshot.child(employeeID).child("Employee_ID").getValue(String.class);
 
+                        //String watchCom = snapshot.child("Designation").getValue(String.class);
+                        String WC = "Watch Commander";
+                        String inspectCom = snapshot.child("Designation").getValue(String.class);
+                        String InspectBy ="Inspect By";
+
+
                         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
@@ -264,11 +270,21 @@ public class LoginActivity extends AppCompatActivity {
                                            "Login successful!",
                                            Toast.LENGTH_LONG)
                                            .show();
-                                   Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                   intent.putExtra("Email", nameFromDB);
-                                   intent.putExtra("Designation", designationFromDB);
-                                   intent.putExtra("Employee_ID", employeeIDFromDB);
-                                   startActivity(intent);
+                                   if(designationFromDB.equals(WC)){
+                                       Intent intent = new Intent(LoginActivity.this, AdminDashboardActivity.class);
+                                       intent.putExtra("Email", nameFromDB);
+                                       intent.putExtra("Designation", designationFromDB);
+                                       intent.putExtra("Employee_ID", employeeIDFromDB);
+                                       startActivity(intent);
+                                   }else{
+                                       Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                       intent.putExtra("Email", nameFromDB);
+                                       intent.putExtra("Designation", designationFromDB);
+                                       intent.putExtra("Employee_ID", employeeIDFromDB);
+                                       startActivity(intent);
+                                   }
+
+
                                }else{
 
 

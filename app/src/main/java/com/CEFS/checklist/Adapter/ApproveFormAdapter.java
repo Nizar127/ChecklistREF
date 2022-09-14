@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.CEFS.checklist.ApprovalEquipmentChecklist;
 import com.CEFS.checklist.EquipmentDetailApproval;
 import com.CEFS.checklist.EquipmentDetailChecklistActivity;
 import com.CEFS.checklist.Model.FomData;
@@ -41,7 +42,7 @@ public class ApproveFormAdapter extends FirebaseRecyclerAdapter<FomData, Approve
         holder.view_equipment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), EquipmentDetailChecklistActivity.class);
+                Intent intent = new Intent(v.getContext(), ApprovalEquipmentChecklist.class);
                 intent.putExtra("EquipmentID", model.getInsertID());
                 v.getContext().startActivity(intent);
             }
@@ -52,7 +53,7 @@ public class ApproveFormAdapter extends FirebaseRecyclerAdapter<FomData, Approve
     @NotNull
     @Override
     public ApproveFormViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.approveviewform, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewformlayout, parent, false);
         return new ApproveFormViewHolder(view);
     }
 

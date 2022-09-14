@@ -41,7 +41,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         employeeID = getIntent().getStringExtra("Employee_ID");
         userdesignation = getIntent().getStringExtra("Designation");
 
-        ref = FirebaseDatabase.getInstance().getReference("User").child(userID);
+        ref = FirebaseDatabase.getInstance().getReference("Employee").child(userID);
 
         bottomtabmenu = findViewById(R.id.bottom_navigation);
         bottomtabmenu.setSelectedItemId(R.id.to_approve);
